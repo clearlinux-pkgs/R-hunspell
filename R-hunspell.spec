@@ -4,7 +4,7 @@
 #
 Name     : R-hunspell
 Version  : 2.9
-Release  : 6
+Release  : 7
 URL      : https://cran.r-project.org/src/contrib/hunspell_2.9.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/hunspell_2.9.tar.gz
 Summary  : High-Performance Stemmer, Tokenizer, and Spell Checker
