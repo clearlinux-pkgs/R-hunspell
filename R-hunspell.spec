@@ -4,17 +4,17 @@
 #
 Name     : R-hunspell
 Version  : 3.0
-Release  : 13
+Release  : 14
 URL      : https://cran.r-project.org/src/contrib/hunspell_3.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/hunspell_3.0.tar.gz
 Summary  : High-Performance Stemmer, Tokenizer, and Spell Checker
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1 MIT MPL-1.1
 Requires: R-hunspell-lib = %{version}-%{release}
-Requires: R-Rcpp
-Requires: R-rlang
+Requires: R-withr
 BuildRequires : R-Rcpp
 BuildRequires : R-rlang
+BuildRequires : R-withr
 BuildRequires : buildreq-R
 
 %description
@@ -44,10 +44,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1545250377
+export SOURCE_DATE_EPOCH=1552833692
 
 %install
-export SOURCE_DATE_EPOCH=1545250377
+export SOURCE_DATE_EPOCH=1552833692
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -83,8 +83,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library hunspell|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  hunspell || :
 
 
 %files
@@ -121,10 +120,17 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/hunspell/help/paths.rds
 /usr/lib64/R/library/hunspell/html/00Index.html
 /usr/lib64/R/library/hunspell/html/R.css
-/usr/lib64/R/library/hunspell/libs/symbols.rds
+/usr/lib64/R/library/hunspell/tests/spelling.R
+/usr/lib64/R/library/hunspell/tests/testdict/ru_RU.aff
+/usr/lib64/R/library/hunspell/tests/testdict/ru_RU.dic
+/usr/lib64/R/library/hunspell/tests/testdict/russian-aot.aff
+/usr/lib64/R/library/hunspell/tests/testdict/russian-aot.dic
+/usr/lib64/R/library/hunspell/tests/testthat.R
+/usr/lib64/R/library/hunspell/tests/testthat/test-cache.R
+/usr/lib64/R/library/hunspell/tests/testthat/test-case.R
+/usr/lib64/R/library/hunspell/tests/testthat/test-encodings.R
+/usr/lib64/R/library/hunspell/tests/testthat/test-parser.R
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/R/library/hunspell/libs/hunspell.so
-/usr/lib64/R/library/hunspell/libs/hunspell.so.avx2
-/usr/lib64/R/library/hunspell/libs/hunspell.so.avx512
