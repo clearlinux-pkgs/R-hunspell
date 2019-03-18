@@ -1,4 +1,6 @@
 3.0
 R-Rcpp
+R-assertthat
+R-cli
 R-rlang
 R-withr
