@@ -4,26 +4,23 @@
 #
 Name     : R-hunspell
 Version  : 3.0
-Release  : 20
+Release  : 21
 URL      : https://cran.r-project.org/src/contrib/hunspell_3.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/hunspell_3.0.tar.gz
 Summary  : High-Performance Stemmer, Tokenizer, and Spell Checker
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1 MIT MPL-1.1
 Requires: R-hunspell-lib = %{version}-%{release}
-Requires: R-assertthat
-Requires: R-cli
+Requires: R-Rcpp
+Requires: R-digest
 BuildRequires : R-Rcpp
-BuildRequires : R-assertthat
-BuildRequires : R-cli
-BuildRequires : R-rlang
-BuildRequires : R-withr
+BuildRequires : R-digest
 BuildRequires : buildreq-R
 
 %description
 # hunspell
 ##### *High-Performance Stemmer, Tokenizer, and Spell Checker for R*
-[![Project Status: Active â The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Build Status](https://travis-ci.org/ropensci/hunspell.svg?branch=master)](https://travis-ci.org/ropensci/hunspell)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropensci/hunspell?branch=master&svg=true)](https://ci.appveyor.com/project/jeroen/hunspell)
 [![Coverage Status](https://codecov.io/github/ropensci/hunspell/coverage.svg?branch=master)](https://codecov.io/github/ropensci/hunspell?branch=master)
@@ -46,13 +43,13 @@ lib components for the R-hunspell package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552893742
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569288973
 
 %install
-export SOURCE_DATE_EPOCH=1552893742
+export SOURCE_DATE_EPOCH=1569288973
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -81,12 +78,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  hunspell || :
+R CMD check --no-manual --no-examples --no-codoc hunspell || :
 
 
 %files
