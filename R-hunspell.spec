@@ -4,10 +4,10 @@
 #
 Name     : R-hunspell
 Version  : 3.0
-Release  : 22
+Release  : 23
 URL      : https://cran.r-project.org/src/contrib/hunspell_3.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/hunspell_3.0.tar.gz
-Summary  : High-Performance Stemmer, Tokenizer, and Spell Checker
+Summary  : Low level spell checker and morphological analyzer based on the famous hunspell library <https://hunspell.github.io>.
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1 MIT MPL-1.1
 Requires: R-hunspell-lib = %{version}-%{release}
@@ -16,6 +16,7 @@ Requires: R-digest
 BuildRequires : R-Rcpp
 BuildRequires : R-digest
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
 # hunspell
@@ -44,10 +45,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1569288973
+export SOURCE_DATE_EPOCH=1571845028
 
 %install
-export SOURCE_DATE_EPOCH=1569288973
+export SOURCE_DATE_EPOCH=1571845028
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
