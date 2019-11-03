@@ -4,7 +4,7 @@
 #
 Name     : R-hunspell
 Version  : 3.0
-Release  : 23
+Release  : 24
 URL      : https://cran.r-project.org/src/contrib/hunspell_3.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/hunspell_3.0.tar.gz
 Summary  : Low level spell checker and morphological analyzer based on the famous hunspell library <https://hunspell.github.io>.
