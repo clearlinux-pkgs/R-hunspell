@@ -1,5 +1,5 @@
 PKG_NAME := R-hunspell
-URL = https://cran.r-project.org/src/contrib/hunspell_3.0.5.tar.gz
+URL = https://ftp.osuosl.org/pub/cran/src/contrib/hunspell_3.0.6.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
